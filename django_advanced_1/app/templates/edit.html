@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>edit</title>
+</head>
+<body>
+    <form method="POST">
+        {% csrf_token %}
+        <p>
+            <label>Введите имя</label><br>
+            <input type="text" name="name" value="{{student.name}}" />
+        </p>
+        <p>
+            <label>Введите возраст</label><br>
+            <input type="number" name="age" value="{{student.age}}" />
+        </p>
+        <p>
+            <label>Выберите пол</label><br>
+            <input type="radio" name="sex" value="M">
+            <label>Male</label>
+            <input type="radio" name="sex" value="F">
+            <label>Female</label>
+            <input type="radio" name="sex" value="U">
+            <label>Unsure</label>
+        </p>
+        <input type="submit" value="Сохранить">
+    </form>
+</body>
+</html>

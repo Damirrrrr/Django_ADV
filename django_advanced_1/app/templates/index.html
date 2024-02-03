@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+<body>
+    <form method="POST" action="create/">
+        {% csrf_token %}
+        <p>
+            <label>Введите имя</label><br>
+            <input type="text" name="name" />
+        </p>
+        <p>
+            <label>Введите возраст</label><br>
+            <input type="number" name="age" />
+        </p>
+        <p>
+            <label>Выберите пол</label> <br>
+            <input type="radio" name="sex" value="M">
+            <label>Male</label>
+            <input type="radio" name="sex" value="F">
+            <label>Female</label>
+            <input type="radio" name="sex" value="U">
+            <label>Unsure</label>
+        </p>
+        <input type="submit" value="Сохранить" >
+    </form>
+    {% if student.count > 0 %}
+    <h2>Список пользователей</h2>
+    <table>
+        <thead><th>Id</th><th>Имя</th><th>Возраст</th><th>Пол</th></thead>
+        {% for student in student %}
+        <tr>
+            <td>{{ student.id }}</td>
+            <td>{{ student.name }}</td>
+            <td>{{ student.age }}</td>
+            <td>{{ student.sex }}</td>
+            <td><a href="edit/{{student.id}}">Изменить</a> | <a href="delete/{{student.id}}">Удалить</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% endif %}
+</body>
+</html>
