@@ -7,7 +7,7 @@ app = FastAPI()
 class Film(BaseModel):
     name: str
     description: str
-    rating: int = Field(ge=0, le = 10)
+    rating: float = Field(ge=0, le = 10)
     director: str 
 
 films = []
