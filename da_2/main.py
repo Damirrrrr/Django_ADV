@@ -27,5 +27,6 @@ def addFilm(film: Film) -> str:
 
 @app.get("/films_r/")
 def getFilmsByRating() -> list[Film]:
-    films.sort(key=lambda f: f.rating)
+    temp_films = films
+    temp_films.sort(key=lambda f: f.rating)
     return films
